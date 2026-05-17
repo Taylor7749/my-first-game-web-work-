@@ -11,20 +11,20 @@ const GuGuDan = () => {
   const onSubmitForm = (e) => {
     e.preventDefault();
     if (parseInt(value) === first * second) {
-      setResult('정답');
+      setResult('答对啦');
       setFirst(Math.ceil(Math.random() * 9));
       setSecond(Math.ceil(Math.random() * 9));
       setValue('');
       inputEl.current.focus();
     } else {
-      setResult('땡');
+      setResult('答错啦！');
       setValue('');
       inputEl.current.focus();
     }
   };
   return (
     <>
-      <div>{first} 곱하기 {second}는?</div>
+      <div>{first} 乘以 {second}等于?</div>
       <form onSubmit={onSubmitForm}>
         <input
           ref={inputEl}
@@ -32,7 +32,7 @@ const GuGuDan = () => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button>입력!</button>
+        <button>提交!</button>
       </form>
       <div id="result">{result}</div>
     </>
